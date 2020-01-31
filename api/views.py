@@ -8,9 +8,16 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 # Create your views here.
-class NavBarItemsViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset =  NavBarItems.objects.all()
-    serializer_class = NavBarItemsSerializer
+class NavBarItemsViewSet(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get(self, request):
+        all_navbar_items = models.NavBarItems.objects.all()
+        serialize_all_navbar_items = serializers.NavBarItemSerializer(all_navbar_items, many = True)
+        return Response({
+            'status': status.HTTP_200_OK,
+            'all_navbar_items': serialize_all_navbar_items.data
+        })
 
 
 class ServicesViewSet(viewsets.ReadOnlyModelViewSet):

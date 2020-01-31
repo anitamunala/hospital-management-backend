@@ -1,7 +1,7 @@
 from api.models import NavBarItems, Service, Doctor
 from rest_framework import serializers
 
-class NavBarItemsSerializer(serializers.HyperlinkedModelSerializer):
+class NavBarItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = NavBarItems
         fields = ['name']

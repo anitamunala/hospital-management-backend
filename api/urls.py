@@ -1,15 +1,12 @@
-from rest_framework import routers
-from api.views import NavBarItemsViewSet, ServicesViewSet, all_doctors
-from django.urls import path, include
+from . import views
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-router = routers.DefaultRouter()
-router.register(r'all/navbar-items', NavBarItemsViewSet)
-router.register(r'services', ServicesViewSet)
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path(r'all-doctors/', all_doctors),
+    path('all-doctors/', views.AllDoctors.as_view()),
+    path('all-navbar-items/', views.NavBarItemsViewSet.as_view()),
+    path('services/', views.ServicesViewSet.as_view()),
 ]
 
 if settings.DEBUG:

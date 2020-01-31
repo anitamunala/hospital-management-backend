@@ -20,7 +20,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length=30)
     email_address= models.EmailField()
     gender = models.CharField(max_length=10, default='male')
-    profile_picture=models.ImageField(upload_to='doctors/', blank=True,null=True)
+    profile_picture=models.ImageField(upload_to='media/', blank=True,null=True)
     specialization = models.ForeignKey(Specialist, on_delete=models.PROTECT)
     phone_number = models.CharField(max_length=15)
     user=models.ForeignKey(User, on_delete=models.CASCADE)

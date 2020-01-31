@@ -6,7 +6,7 @@ class NavBarItemSerializer(serializers.ModelSerializer):
         model = NavBarItems
         fields = ['name']
 
-class ServiceSerializer(serializers.HyperlinkedModelSerializer):
+class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
         fields = ['name','description','image']

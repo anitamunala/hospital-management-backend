@@ -2,3 +2,6 @@ virtual/
 api/__pycache__/*
 api/migrations/*
 db.sqlite3
+api/serializers/__pycache__/*
+media/*
+hospital_management/__pycache__/*
